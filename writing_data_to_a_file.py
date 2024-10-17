@@ -19,8 +19,11 @@ class Write:
         self.__all_data[new_connection_key] = temp
         
     def write_BD(self):
-        with open("bd.json", "w"):
-            pass
+        try:
+            with open("bd.json", "w"):
+                pass
         
-        with open("bd.json", "w") as fl:
-            json.dump(self.__all_data, fl, indent=4)
+            with open("bd.json", "w") as fl:
+                json.dump(self.__all_data, fl, indent=4)
+        except:
+            return "Ошибка открытия файла"

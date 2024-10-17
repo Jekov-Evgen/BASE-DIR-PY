@@ -4,19 +4,22 @@ class Editing:
     def __init__(self) -> None:
         pass
     
-    def changing_data_by_internal_key(self, connection_key, minor_key, new_value):
-        with open("bd.json", "r") as fl:
-            temp = fl.read()
-            transformation = json.loads(temp)
+    def changing_data_by_internal_key(self, name_file, connection_key, minor_key, new_value):
+        try:
+            with open("bd.json", "r") as fl:
+                temp = fl.read()
+                transformation = json.loads(temp)
         
-        master_key_data = transformation.get(str(connection_key))
+            master_key_data = transformation.get(str(connection_key))
         
-        if master_key_data:
-            for record in master_key_data:
-                if minor_key in record:
-                    record[minor_key] = new_value
-                    break
+            if master_key_data:
+                for record in master_key_data:
+                    if minor_key in record:
+                        record[minor_key] = new_value
+                        break
                 
-        with open("bd.json", "w") as fl:
-            json.dump(transformation, fl, indent=4)
+            with open("bd.json", "w") as fl:
+                json.dump(transformation, fl, indent=4)
+        except:
+            return "Ошибка открытия файла"
         
