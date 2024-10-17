@@ -14,7 +14,7 @@ class Read:
                 
                 return result
         except:
-            return "Ошибка открытия файла"
+            return "Error opening file"
     
     
     def read_connection_key_minor_key(self, connection_key, minor_key):
@@ -33,7 +33,7 @@ class Read:
             
                 return result
         except:
-            return "Ошибка открытия файла"
+            return "Error opening file"
         
         
     def output_all_internal_key_data(self, minor_key):
@@ -53,4 +53,4 @@ class Read:
                 
                 return result
         except:
-            return "Ошибка открытия файла"
+            return "Error opening file"

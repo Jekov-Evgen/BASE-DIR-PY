@@ -27,4 +27,4 @@ class Write:
             with open(self.name_file, "w") as fl:
                 json.dump(self.__all_data, fl, indent=4)
         except:
-            return "Ошибка открытия файла"
+            return "Error opening file"
