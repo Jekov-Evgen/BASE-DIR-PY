@@ -1,8 +1,9 @@
 import json
 
 class Write:
-    def __init__(self, connection_key : int, key_to_meaning, meaning) -> None:
+    def __init__(self, name_file, connection_key : int, key_to_meaning, meaning) -> None:
         self.__all_data = {}
+        self.name_file = name_file
         
         temp = [{key_to_meaning : meaning}]
         self.__all_data[connection_key] = temp 
@@ -20,10 +21,10 @@ class Write:
         
     def write_BD(self):
         try:
-            with open("bd.json", "w"):
+            with open(self.name_file, "w"):
                 pass
         
-            with open("bd.json", "w") as fl:
+            with open(self.name_file, "w") as fl:
                 json.dump(self.__all_data, fl, indent=4)
         except:
             return "Ошибка открытия файла"

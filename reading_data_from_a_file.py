@@ -1,13 +1,13 @@
 import json
 
 class Read:
-    def __init__(self) -> None:
-        pass
+    def __init__(self, name_file) -> None:
+        self.name_file = name_file
     
     
     def read_connection_key(self, connection_key):
         try:
-            with open("bd.json", "r") as fl:
+            with open(self.name_file, "r") as fl:
                 temp = fl.read()
                 transformation = json.loads(temp)
                 result = transformation.get(str(connection_key))
@@ -19,7 +19,7 @@ class Read:
     
     def read_connection_key_minor_key(self, connection_key, minor_key):
         try:
-            with open("bd.json", "r") as fl:
+            with open(self.name_file, "r") as fl:
                 temp = fl.read()
                 transformation = json.loads(temp)
                 master_key_data = transformation.get(str(connection_key))
@@ -38,7 +38,7 @@ class Read:
         
     def output_all_internal_key_data(self, minor_key):
         try:
-            with open("bd.json", "r") as fl:
+            with open(self.name_file, "r") as fl:
                 temp = fl.read()
                 transformation = json.loads(temp)
                 all_data = []

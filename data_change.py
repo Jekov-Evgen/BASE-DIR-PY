@@ -1,12 +1,12 @@
 import json
 
 class Editing:
-    def __init__(self) -> None:
-        pass
+    def __init__(self, name_file) -> None:
+        self.name_file = name_file
     
-    def changing_data_by_internal_key(self, name_file, connection_key, minor_key, new_value):
+    def changing_data_by_internal_key(self, connection_key, minor_key, new_value):
         try:
-            with open("bd.json", "r") as fl:
+            with open(self.name_file, "r") as fl:
                 temp = fl.read()
                 transformation = json.loads(temp)
         
@@ -18,7 +18,7 @@ class Editing:
                         record[minor_key] = new_value
                         break
                 
-            with open("bd.json", "w") as fl:
+            with open(self.name_file, "w") as fl:
                 json.dump(transformation, fl, indent=4)
         except:
             return "Ошибка открытия файла"
