@@ -11,6 +11,18 @@ class Read:
             result = transformation.get(str(connection_key))
             
             return result
-        
-tt = Read()        
-print(tt.read_connection_key(1))
+    
+    def read_connection_key_minor_key(self, connection_key, minor_key):
+        with open("bd.json", "r") as fl:
+            temp = fl.read()
+            transformation = json.loads(temp)
+            master_key_data = transformation.get(str(connection_key))
+            result = None
+            
+            if master_key_data:
+                for record in master_key_data:
+                    if minor_key in record:
+                        result = record.get(minor_key)
+                        break
+            
+            return result
