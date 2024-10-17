@@ -1,7 +1,7 @@
 import json
 
 class Editing:
-    def __init__(self, name_file) -> None:
+    def __init__(self, name_file : str) -> None:
         self.name_file = name_file
     
     def changing_data_by_internal_key(self, connection_key, minor_key, new_value):
