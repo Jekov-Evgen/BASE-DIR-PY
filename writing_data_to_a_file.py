@@ -1,7 +1,7 @@
 import json
 
 class Write:
-    def __init__(self, name_file : str, connection_key : int, key_to_meaning, meaning) -> None:
+    def __init__(self, name_file, connection_key : int, key_to_meaning, meaning) -> None:
         self.__all_data = {}
         self.name_file = name_file
         

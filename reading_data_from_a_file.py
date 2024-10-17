@@ -1,7 +1,7 @@
 import json
 
 class Read:
-    def __init__(self, name_file : str) -> None:
+    def __init__(self, name_file) -> None:
         self.name_file = name_file
     
     
