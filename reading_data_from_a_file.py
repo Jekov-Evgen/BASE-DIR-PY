@@ -26,3 +26,19 @@ class Read:
                         break
             
             return result
+        
+    def output_all_internal_key_data(self, minor_key):
+        with open("bd.json", "r") as fl:
+            temp = fl.read()
+            transformation = json.loads(temp)
+            all_data = []
+            result = []
+            
+            for key in transformation:
+                all_data.extend(transformation[key])  
+            
+            for data_dict in all_data:
+                if minor_key in data_dict:
+                    result.append(data_dict[minor_key]) 
+                
+            return result
