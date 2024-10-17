@@ -19,7 +19,7 @@ class Write:
         temp = [{key_to_meaning : meaning}]
         self.__all_data[new_connection_key] = temp
         
-    def write_BD(self):
+    def write_file(self):
         try:
             with open(self.name_file, "w"):
                 pass
